@@ -1,0 +1,6 @@
+﻿  Box.cpp
+C:\Users\minio\source\repos\Lab 7.2 Gr\Lab 7.2 Gr\Box.cpp(9,12): warning C4244: аргумент: преобразование "time_t" в "unsigned int", возможна потеря данных
+  Lab 7.2 Gr.cpp
+  Создание кода...
+C:\Users\minio\source\repos\Lab 7.2 Gr\Lab 7.2 Gr\Box.cpp(59): warning C4715: Box::Truck::truck_trip: значение возвращается не при всех путях выполнения
+  Lab 7.2 Gr.vcxproj -> C:\Users\minio\source\repos\Lab 7.2 Gr\x64\Debug\Lab 7.2 Gr.exe
