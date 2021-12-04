@@ -1,7 +1,5 @@
 #pragma once
 
-const int MAX_TRACK = 10;
-
 class Box
 {
 private:
@@ -11,23 +9,26 @@ private:
 public:
 	class Truck;
 	Box();
-	Truck processLoading(Box::Truck truck);
-	void creation_amount();
-	void box_loading(Truck truck);
-	bool check_amount();
 	void infoBox();
+	Truck processLoading(Box::Truck truck);
+public:
+	void creation_amount();
+	Truck box_loading(Truck truck);
+	bool check_amount();
 };
 
 class Box::Truck
 {
 private:
+	int MAX_TRACK = 10;
 	int amountTrack;
 	int numTruck;
 	int infoAmountTrack;
 
 public:
 	Truck();
-	bool truck_loading();
+	bool loadTruck;
+	Truck truck_loading();
 	bool truck_trip();
 	void infoTruck();
 };

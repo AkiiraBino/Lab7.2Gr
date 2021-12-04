@@ -6,7 +6,6 @@
 
 void Box::creation_amount()
 {
-	srand(time(NULL));
 	amountBox = rand() % 1000;
 }
 
@@ -21,27 +20,31 @@ Box::Truck::Truck()
 	amountTrack = 0;
 	infoAmountTrack = 0;
 	numTruck = 0;
+	loadTruck = true;
 }
 
-void Box::box_loading(Truck truck)
+Box::Truck Box::box_loading(Truck truck)
 {
 	busy = true;
 	do
 	{
 		amountBox--;
-	} while (truck.truck_loading() && check_amount());
+		truck.truck_loading();
+	} while (truck.loadTruck  && check_amount());
 	
 	busy = false;
+	return truck;
 }
 
-bool Box::Truck::truck_loading()
+Box::Truck Box::Truck::truck_loading()
 {
 	this->amountTrack++;
 	if (this->amountTrack == MAX_TRACK)
 	{
-		return(false);
+		this->loadTruck = false;
+
 	}
-	else return true;
+	return *this;
 }
 
 bool Box::Truck::truck_trip()
@@ -84,7 +87,7 @@ Box::Truck Box::processLoading(Truck truck)
 {
 	if (busy == false)
 	{
-		box_loading(truck);
+		truck = box_loading(truck);
 		return truck;
 	}
 	else
@@ -93,3 +96,4 @@ Box::Truck Box::processLoading(Truck truck)
 	}
 
 }
+
